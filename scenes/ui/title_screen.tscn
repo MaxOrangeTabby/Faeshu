@@ -1,0 +1,86 @@
+[gd_scene load_steps=8 format=3 uid="uid://bsyfgbi2l3olk"]
+
+[ext_resource type="Script" path="res://scenes/ui/title_screen.gd" id="1_p22tk"]
+[ext_resource type="FontFile" uid="uid://prqry1rd7a2r" path="res://fonts/TrajanPro-Bold.otf" id="1_wk4ea"]
+[ext_resource type="PackedScene" uid="uid://b8ooehf4y7kbx" path="res://scenes/levels/level.tscn" id="2_3rbkp"]
+
+[sub_resource type="Gradient" id="Gradient_5j338"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_t1s6b"]
+gradient = SubResource("Gradient_5j338")
+width = 1152
+height = 648
+
+[sub_resource type="LabelSettings" id="LabelSettings_y3ves"]
+font_size = 400
+font_color = Color(0.94902, 0.92549, 0.85098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xkq35"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.94902, 0.92549, 0.85098, 1)
+expand_margin_left = 24.0
+expand_margin_top = 24.0
+expand_margin_right = 24.0
+expand_margin_bottom = 24.0
+
+[node name="Title Screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p22tk")
+start_level = ExtResource("2_3rbkp")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_t1s6b")
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -275.0
+offset_top = 118.0
+offset_right = 273.0
+offset_bottom = 258.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_wk4ea")
+text = "Faeshu"
+label_settings = SubResource("LabelSettings_y3ves")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -111.0
+offset_top = 11.0
+offset_right = 108.0
+offset_bottom = 86.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.94902, 0.92549, 0.85098, 1)
+theme_override_fonts/font = ExtResource("1_wk4ea")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxFlat_xkq35")
+text = "Start
+"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

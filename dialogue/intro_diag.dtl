@@ -1,0 +1,12 @@
+join helper_char leftmost
+helper_char: Hi I'm Z! I'm here to help assist you on your journey. We've built a radio inside your sword to communicate with you. It looks like you landed on the planet safely. (Press [Enter] to continue)
+helper_char: I'll brief you on your mission. The planet you're currently on is our abandoned homeworld.
+helper_char: We know this might come as a horror but the enemies that have taken over our planet are grass-based. However, we believe we can take back the planet.
+helper_char: To give you a fighting chance, we've given you one of the strongest weapons we could find, it was the most expensive one on SpaceTEMU.
+helper_char: Since you might have sustained brain damage during the flight or had pre-existing damage, I'll remind you of your controls. You can move around with [color=a33f3f]W, A, S, D[/color]. Then use [color=a33f3f]Mouse Left Click[/color] to attack.
+helper_char: Use the [color=a33f3f]Space Bar[/color] in order to jump, the longer you hold it the higher you go.
+helper_char: The sword is modeled after an IPod Nano, so it's able to record your moves. We've recorded 2 of your attacks and now you can create projections that play the attacks
+helper_char: Unfortunately, we modeled it after an IPod Nano so we don't have storage to record more than 2 attacks. Regardless, these attacks are much more powerful than your basic attacks.
+helper_char: If you press [color=a33f3f]E[/color], you launch a blunt attack in front of you, while if you press [color=a33f3f]F[/color] is a thrusting attack in the direction you are facing. Using these abilities will drain the sword of energy which you can monitor by the blue bar in the top left, but you are able to attack and recharge from enemies.
+helper_char: I believe that should be everything, go ahead and explore around.
+[signal arg="finish_intro_diag"]

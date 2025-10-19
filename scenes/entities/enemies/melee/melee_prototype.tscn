@@ -1,0 +1,114 @@
+[gd_scene load_steps=17 format=3 uid="uid://ddftxhtrwprle"]
+
+[ext_resource type="PackedScene" uid="uid://d1op734pfyjnt" path="res://scenes/entities/enemies/enemy.tscn" id="1_0g701"]
+[ext_resource type="Script" path="res://scenes/entities/enemies/melee/melee_prototype.gd" id="2_j8fy2"]
+[ext_resource type="Texture2D" uid="uid://b02uy3jpay80p" path="res://art - EXTERNAL ASSET/Legacy-Fantasy - High Forest 2.3/Mob/Snail/walk-Sheet.png" id="3_5g8la"]
+[ext_resource type="Script" path="res://scenes/entities/enemies/damagable.gd" id="4_7pk1h"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_figic"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5v067"]
+atlas = ExtResource("3_5g8la")
+region = Rect2(0, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3182a"]
+atlas = ExtResource("3_5g8la")
+region = Rect2(48, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ggymd"]
+atlas = ExtResource("3_5g8la")
+region = Rect2(96, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqe36"]
+atlas = ExtResource("3_5g8la")
+region = Rect2(144, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0o1vr"]
+atlas = ExtResource("3_5g8la")
+region = Rect2(192, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hpuoh"]
+atlas = ExtResource("3_5g8la")
+region = Rect2(240, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b2vnu"]
+atlas = ExtResource("3_5g8la")
+region = Rect2(288, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u3kal"]
+atlas = ExtResource("3_5g8la")
+region = Rect2(336, 0, 48, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bhexr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5v067")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3182a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ggymd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqe36")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0o1vr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hpuoh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b2vnu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u3kal")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_avuxj"]
+radius = 9.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a76w0"]
+
+[node name="Melee_prototype" instance=ExtResource("1_0g701")]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("2_j8fy2")
+speed = 20.0
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(1, -3)
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_figic")
+
+[node name="AnimatedSprite2D" parent="." index="2"]
+sprite_frames = SubResource("SpriteFrames_bhexr")
+frame_progress = 0.349732
+
+[node name="PlayerDetectionArea" parent="." index="3"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectionArea" index="0"]
+position = Vector2(0, 4)
+scale = Vector2(16, 16)
+shape = SubResource("CircleShape2D_avuxj")
+
+[node name="CollisionDetectionArea" parent="." index="4"]
+position = Vector2(1, 0)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CollisionDetectionArea" index="0"]
+position = Vector2(0, 4)
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_a76w0")
+
+[node name="Damagable" type="Node" parent="." index="5"]
+script = ExtResource("4_7pk1h")
+
+[connection signal="body_entered" from="PlayerDetectionArea" to="." method="_on_player_detection_area_body_entered"]

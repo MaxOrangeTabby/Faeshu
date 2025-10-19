@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://bwppesgc22ynn"]
+
+[ext_resource type="Texture2D" uid="uid://c0dpmucx4u3hb" path="res://art/player/hook/link.png" id="1_7bcvw"]
+[ext_resource type="Script" path="res://scenes/abilities/grapple/chain.gd" id="1_7v467"]
+[ext_resource type="Texture2D" uid="uid://dfgpldlrjhoae" path="res://art/player/hook/hook.png" id="2_ykyc1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bvljr"]
+radius = 16.9231
+height = 33.8462
+
+[node name="Chain" type="Node2D"]
+script = ExtResource("1_7v467")
+
+[node name="Links2" type="Line2D" parent="."]
+visible = false
+texture_repeat = 2
+position = Vector2(0, -7)
+points = PackedVector2Array(0, 0, 0, 0)
+width = 32.0
+texture = ExtResource("1_7bcvw")
+
+[node name="Links" type="Sprite2D" parent="."]
+visible = false
+texture_repeat = 2
+position = Vector2(0, 7.99999)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("1_7bcvw")
+offset = Vector2(0, 23)
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 96)
+
+[node name="Hook" type="CharacterBody2D" parent="."]
+scale = Vector2(0.45, 0.45)
+collision_layer = 16
+collision_mask = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="Hook"]
+texture = ExtResource("2_ykyc1")
+flip_v = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hook"]
+position = Vector2(0, 9.23077)
+scale = Vector2(0.760001, 1)
+shape = SubResource("CapsuleShape2D_bvljr")

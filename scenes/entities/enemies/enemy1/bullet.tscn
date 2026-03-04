@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://b63lombc775k3"]
+
+[ext_resource type="Texture2D" uid="uid://cayqvjg38iv40" path="res://art/enemy/enemy1/enemy1_proj_ss.png" id="1_hjh5c"]
+[ext_resource type="Script" path="res://scenes/entities/enemies/enemy1/bullet.gd" id="1_tr8d5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ojp20"]
+size = Vector2(18.9286, 12.5)
+
+[node name="bullet" type="Area2D"]
+collision_layer = 16
+collision_mask = 3
+script = ExtResource("1_tr8d5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(17, 0)
+texture = ExtResource("1_hjh5c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.299991, -0.5)
+scale = Vector2(0.559998, 0.562975)
+shape = SubResource("RectangleShape2D_ojp20")
+
+[node name="bullet_lifetime" type="Timer" parent="."]
+wait_time = 8.0
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="bullet_lifetime" to="." method="_on_bullet_lifetime_timeout"]

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1op734pfyjnt"]
+
+[ext_resource type="PackedScene" uid="uid://diax78xgldw4h" path="res://scenes/entities/entity.tscn" id="1_t02to"]
+
+[node name="Enemy" instance=ExtResource("1_t02to")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="2"]
+
+[node name="PlayerDetectionArea" type="Area2D" parent="." index="3"]
+
+[node name="CollisionDetectionArea" type="Area2D" parent="." index="4"]

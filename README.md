@@ -1,6 +1,6 @@
 # Faeshu
 
-This is the game I made for the Texas Aggie Game Developers Spring 2025 Gamejam. <br>
+This is the game I made for the Texas A&M Game Developers Spring 2025 Gamejam. <br>
 It won **1st place overall** and **Best in Art** <br>
 
 The code here is a cleaned version of the actual repo I used, it removed any external assets like fonts.
